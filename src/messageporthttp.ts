@@ -310,7 +310,7 @@ async function handleHttpuvRequests(
     // send it to httpuv
     if (!request.more_body) {
       try {
-        const bytes = await new shelter.RRaw(Array.from(body));
+        const bytes = await new shelter.RRaw(body);
         const env = await new shelter.REnvironment({ bytes, appName });
         const httpuvResp = await webRProxy.webR.evalR(
           `
